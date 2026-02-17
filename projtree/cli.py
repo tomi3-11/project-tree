@@ -1,6 +1,8 @@
 import argparse
 import sys
 from pathlib import Path
+from projtree import __version__
+import click
 
 from projtree.generator import generate_markdown_tree
 from projtree.ignore import DEFAULT_IGNORES, load_ignore_file
@@ -13,6 +15,8 @@ def parse_ignore(value: str) -> set[str]:
     return {item.strip() for item in value.split(",") if item.strip()}
 
 
+@click.group()
+@click.version_option(__version__, "-v", "--version", prog_name="projtree", message="%(prog)s version %(version)s")
 def main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(
         prog="projtree",
