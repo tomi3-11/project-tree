@@ -14,10 +14,7 @@ DEFAULT_OUTPUT = "structure.md"
 def parse_ignore(value: str) -> set[str]:
     return {item.strip() for item in value.split(",") if item.strip()}
 
-
-@click.group()
-@click.version_option(__version__, "-v", "--version", prog_name="projtree", message="%(prog)s version %(version)s")
-def main(argv: list[str] | None = None) -> int:
+def argparse_main(argv: list[str] | None = None) -> int:
     parser = argparse.ArgumentParser(
         prog="projtree",
         description="Generate a deterministic Markdown project tree.",
@@ -89,6 +86,21 @@ def main(argv: list[str] | None = None) -> int:
 
     return 0
 
+@click.command(
+        context_settings={
+            "ignore_unknown_options": True,
+            "allow_extra_args": True,
+        }
+    )
+@click.version_option(
+        __version__,
+        "-v", "--version",
+        prog_name="projtree",
+        message="%(prog)s version %(version)s",
+)
+@click.pass_context
+def main(ctx):
+    return argparse_main(ctx.args)
 
 if __name__ == "__main__":
-    raise SystemExit(main())
+    raise SystemExit(argparse_main())
