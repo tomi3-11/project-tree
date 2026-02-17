@@ -86,6 +86,7 @@ def argparse_main(argv: list[str] | None = None) -> int:
 
     return 0
 
+
 @click.command(
         context_settings={
             "ignore_unknown_options": True,
@@ -101,6 +102,7 @@ def argparse_main(argv: list[str] | None = None) -> int:
 @click.pass_context
 def main(ctx):
     return argparse_main(ctx.args)
+
 
 if __name__ == "__main__":
     raise SystemExit(argparse_main())
