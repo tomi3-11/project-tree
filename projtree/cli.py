@@ -102,7 +102,7 @@ def argparse_main(argv: list[str] | None = None) -> int:
 )
 @click.pass_context
 def main(ctx):
-    return argparse_main(ctx.args)
+    sys.exit(argparse_main(ctx.args))
 
 
 if __name__ == "__main__":
