@@ -4,3 +4,4 @@ __pycache__
 projtree.egg-info
 .pytest_cache
 .virt
+.vscode
