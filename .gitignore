@@ -12,3 +12,5 @@ STRUCTURE.md
 projtree.egg-info
 build/*
 WARP.md
+.vscode
+poetry.lock

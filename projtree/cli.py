@@ -1,9 +1,9 @@
 import argparse
 import sys
-from pathlib import Path
-from projtree import __version__
 import click
 
+from pathlib import Path
+from projtree import __version__
 from projtree.generator import generate_markdown_tree
 from projtree.ignore import DEFAULT_IGNORES, load_ignore_file
 from projtree.watcher import watch_and_generate
@@ -91,6 +91,7 @@ def argparse_main(argv: list[str] | None = None) -> int:
         context_settings={
             "ignore_unknown_options": True,
             "allow_extra_args": True,
+            "help_option_names": [],
         }
     )
 @click.version_option(
