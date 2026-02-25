@@ -1,12 +1,13 @@
 __pycache__
 .pytest_cache
 .venv
+.env
 venv
+env
 .mypy_cache
 node_modules
 projtree.egg-info
 build/*
 WARP.md
 .vscode
-poetry.lock
 structure.md
